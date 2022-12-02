@@ -148,6 +148,8 @@
     rnix-lsp
     tdesktop
     terminator
+
+    gnome.gnome-keyring
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
