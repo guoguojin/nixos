@@ -1,0 +1,6 @@
+{ config, pkgs, nixpkgs, ... }:
+
+{
+    services = {
+    };
+}
