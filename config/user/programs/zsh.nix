@@ -16,8 +16,12 @@
 
       initExtra = ''
       # Source powerlevel10k
-      [[ -f ${config.xdg.configHome}/zsh/.p10k.zsh ]] && source ${config.xdg.configHome}/zsh/.p10k.zsh
+      [[ -f ${config.xdg.configHome}/zsh/p10k.zsh ]] && source ${config.xdg.configHome}/zsh/p10k.zsh
       [[ -f ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme ]] && source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+
+      # Personal zsh plugins
+      [[ -f ${config.xdg.configHome}/zsh/java_version.zsh ]] && source ${config.xdg.configHome}/zsh/java_version.zsh
+      [[ -f ${config.xdg.configHome}/zsh/task.zsh ]] && source ${config.xdg.configHome}/zsh/task.zsh
       '';
 
       envExtra = ''

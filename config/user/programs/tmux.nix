@@ -1,17 +1,23 @@
-set -g prefix C-q
-unbind %
+{ config, pkgs, nixpkgs, ... }:
+
+{
+  programs.tmux = {
+    enable = true;
+    prefix = "C-a";
+    shortcut = "a";
+    historyLimit = 50000;
+    baseIndex = 1;
+    escapeTime = 100;
+    clock24 = true;
+    extraConfig = ''
 bind | split-window -h
 bind - split-window -v
-bind C-q last-window
-bind r source-file ~/.tmux.conf \; display "Reloaded!"
-
-# Set scrollback buffer n lines
-set -g history-limit 50000
+bind C-a last-window
+bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 
 # Set status bar
 set -g status-bg black
 set -g status-fg white
-# set -g status-left '#[fg=green]#H'
 
 # Highlight active window
 set-window-option -g window-status-current-style bg=red
@@ -32,9 +38,6 @@ set -g status-right '#[fg=green] ][ #[fg=blue]%Y-%m-%d #[fg=white]%H:%M:%S#[defa
 set-option -g status-interval 1
 set-option -g default-terminal "xterm-256color"
 #set-option -g default-shell /usr/bin/zsh
-set -sg escape-time 1
-set-option -g base-index 1
-setw -g pane-base-index 1
 
 set -g mouse on
 
@@ -49,18 +52,20 @@ bind -n C-c send-keys "clear && tmux clear-history" \; send-keys "Enter"
 # Fix for home and end not working with zsh
 bind-key -n Home send Escape "OH"
 bind-key -n End send Escape "OF"
-
-source "/usr/lib/python3.10/site-packages/powerline/bindings/tmux/powerline.conf"
-
-# List tmux plugins
-set -g @plugin 'tmux-plugins/tpm '
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-
-# Let continuum automatically restore tmux sessions
-set -g @continuum-restore 'on'
-
-# Initialize tmux plugin manager (make sure you keep this at the bottom of the file)
-run '~/.tmux/plugins/tpm/tpm'
-
+    '';
+    plugins = with pkgs; [
+      tmuxPlugins.cpu
+      { 
+        plugin = tmuxPlugins.resurrect; 
+        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '60' # minutes
+        ''; 
+      }
+    ];
+  };
+}

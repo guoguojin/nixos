@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./i3.nix
     ];
 
   # Bootloader.
@@ -108,7 +109,7 @@
     shell = pkgs.zsh;
     initialPassword = "letmein";
     packages = with pkgs; [
-    #  firefox
+      firefox
     #  thunderbird
     ];
   };
@@ -116,6 +117,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # required to make i3blocks to work
+  environment.pathsToLink = [
+    "/libexec"
+  ];
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; 
@@ -150,6 +156,17 @@
     terminator
 
     gnome.gnome-keyring
+
+    minikube
+    kubectl
+    spotify
+    dropbox
+    dropbox-cli
+    remmina
+    slack
+    lxappearance
+    font-manager
+    alacritty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -160,12 +177,13 @@
     enableSSHSupport = true;
   };
 
-  # List services that you want to enable:
+  # List services that you want to enableb:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   programs = {
+    dconf.enable = true;
     nm-applet.enable = true;
     fuse.userAllowOther = true;
   };

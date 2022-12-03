@@ -4,7 +4,7 @@ let
   user = "tanq";
 in {
   home.file = {
-    "${config.xdg.configHome}/zsh/.p10k.zsh" = {
+    "${config.xdg.configHome}/zsh/p10k.zsh" = {
       source = ../../dotfiles/zsh/p10k.zsh;
     };
     "${config.xdg.configHome}/zsh/java_version.zsh" = {
@@ -13,8 +13,8 @@ in {
     "${config.xdg.configHome}/zsh/task.zsh" = {
       source = ../../dotfiles/zsh/task.zsh;
     };
-    "${config.xdg.configHome}/terminator" = {
-      source = ../../dotfiles/terminator;
+    "${config.xdg.configHome}/i3/scripts/i3exit.sh" = {
+      source = ../../dotfiles/i3/scripts/i3exit.sh;
     };
   };
   
