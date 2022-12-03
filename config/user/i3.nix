@@ -12,6 +12,8 @@ in {
         size = 11.0;
       };
 
+      defaultWorkspace = "workspace number 1";
+
       focus = {
         followMouse = false;
         mouseWarping = false;
