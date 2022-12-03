@@ -156,6 +156,7 @@
     terminator
 
     gnome.gnome-keyring
+    gnome.libgnome-keyring
 
     minikube
     kubectl
