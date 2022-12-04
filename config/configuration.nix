@@ -177,6 +177,8 @@
     jetbrains.pycharm-professional
     neovim
     obsidian
+    qogir-theme
+    qogir-icon-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
