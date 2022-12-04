@@ -184,7 +184,7 @@ mode "$variety" {
 }
 
 bindsym mod1+Shift+v mode "$variety"
-set $variety Variety: (n)ext, (p)revious, (f)avourite, (t)rash,  pause,  resume / Pywal: (N)ext, (P)revious, (T)rash, (U)pdate
+set $variety Variety: (n)ext, (p)revious, (f)avourite, (t)rash,  pause,  resume
     '';
   };
 }
