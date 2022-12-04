@@ -68,6 +68,7 @@
       corefonts
       carlito
       vegur
+      cantarell-fonts
     ];
   };
 
