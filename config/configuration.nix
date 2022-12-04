@@ -170,6 +170,11 @@
     lxappearance
     font-manager
     alacritty
+    jetbrains.goland
+    jetbrains.idea-ultimate
+    jetbrains.datagrip
+    jetbrains.pycharm-professional
+    neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
