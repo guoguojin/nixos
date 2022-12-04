@@ -36,7 +36,16 @@ in {
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; notification = false; }
         { command = "variety"; notification = false; }
         { command = "dropbox"; notification = false; }
+        { command = "ws10 whatsapp-for-linux"; notification = false; }
       ];
+
+      assigns = {
+        "10" = [ 
+          { class = "Whatsapp-for-linux";}
+          { class = "TelegramDesktop"; }
+          { class = "Slack"; }
+        ];
+      };
 
       floating = {
         criteria = [
