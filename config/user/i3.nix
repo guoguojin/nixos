@@ -34,6 +34,8 @@ in {
         { command = "unclutter"; }
         { command = "autotiling"; notification = false; always = true; }
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; notification = false; }
+        { command = "variety"; notification = false; }
+        { command = "dropbox"; notification = false; }
       ];
 
       floating = {
