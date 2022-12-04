@@ -73,14 +73,14 @@
         paladin = "dstask context project:nexus.backoffice +nexus";
         nv = "nvim";
         ws1 = "i3-msg workspace \"1\";";
-        ws2 = "i3-msg workspace \"1\";";
-        ws3 = "i3-msg workspace \"1\";";
-        ws4 = "i3-msg workspace \"1\";";
-        ws5 = "i3-msg workspace \"1\";";
-        ws6 = "i3-msg workspace \"1\";";
-        ws7 = "i3-msg workspace \"1\";";
-        ws8 = "i3-msg workspace \"1\";";
-        ws9 = "i3-msg workspace \"1\";";
+        ws2 = "i3-msg workspace \"2\";";
+        ws3 = "i3-msg workspace \"3\";";
+        ws4 = "i3-msg workspace \"4\";";
+        ws5 = "i3-msg workspace \"5\";";
+        ws6 = "i3-msg workspace \"6\";";
+        ws7 = "i3-msg workspace \"7\";";
+        ws8 = "i3-msg workspace \"8\";";
+        ws9 = "i3-msg workspace \"9\";";
         ws10 = "i3-msg workspace \"10\";";
       };
 
