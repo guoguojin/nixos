@@ -10,5 +10,6 @@
     ./programs/taskwarrior.nix
     ./programs/terminator.nix
     ./programs/autorandr.nix
+    ./programs/git.nix
   ];
 }
