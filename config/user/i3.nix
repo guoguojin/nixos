@@ -36,6 +36,7 @@ in {
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; notification = false; }
         { command = "variety"; notification = false; }
         { command = "dropbox"; notification = false; }
+        { command = "autorandr -c"; notification = false; }
       ];
 
       assigns = {
@@ -90,6 +91,11 @@ in {
 
         "XF86MonBrightnessUp" = "exec --no-startup-id sh -c \"light -A 10 && notify-brightness\""; # increase screen brightness
         "XF86MonBrightnessDown" = "exec --no-startup-id sh -c \"light -U 10 && notify-brightness\""; # decrease screen brightness
+
+        "${mod}+Mod1+Right" = "move workspace to output right";
+        "${mod}+Mod1+Left" = "move workspace to output left";
+        "${mod}+Mod1+Down" = "move workspace to output down";
+        "${mod}+Mod1+Up" = "move workspace to output up";
       };
 
       bars = [

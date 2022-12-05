@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -120,6 +120,9 @@
   services.xserver.libinput.enable = true;
   services.xserver.libinput.touchpad.naturalScrolling = true;
   services.xserver.libinput.mouse.naturalScrolling = true;
+  services.xserver.displayManager.sessionCommands = ''
+    ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+  '';
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tanq = {
@@ -199,6 +202,7 @@
     whatsapp-for-linux
     neofetch
     arandr
+    autorandr
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
