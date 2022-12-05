@@ -235,6 +235,8 @@
     neofetch
     arandr
     autorandr
+    gitflow
+    poetry
   ];
 
   # This value determines the NixOS release from which the default

@@ -15,6 +15,10 @@
       "gitflow \"prefix\"" = {
         versiontag = "v";
       };
+      "gitflow \"branch\"" = {
+        master = "main";
+        develop = "develop";
+      };
       init = {
         defaultBranch = "main";
       };
