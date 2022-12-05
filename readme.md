@@ -41,7 +41,14 @@
     git clone https://github.com/guoguojin/nixos.git /path/to/clone-to
     ```
 
-10. Install NixOS
+10. Symlink the `flake.nix` and `flake.lock` in `/mnt/etc/nixos`
+
+    ```bash
+    sudo ln -s /path/to/clone-to/flake.nix /mnt/etc/nixos/flake.nix
+    sudo ln -s /path/to/clone-to/flake.lock /mnt/etc/nixos/flake.lock
+    ```
+
+11. Install NixOS
 
     ```bash
     nixos-install --flake /mnt/etc/nixos#<profile-to-install>
@@ -49,4 +56,14 @@
 
 ## Post install
 
-To modify the build, edit the flake files, then run `nixos-rebuild switch --flake /etc/nixos#<profile-to-install>`.
+To modify the build, edit the flake files, then run `sudo nixos-rebuild switch`.
+
+By default if there's a `flake.nix` file in the /etc/nixos folder, `nixos-rebuild` will automatically run as though the `--flake` flag has been passed to it. If the profile name is not specified, then `nixos-rebuild` use the machine's hostname as the profile name.
+
+The above command when run with a flake is equivalent to:
+
+```bash
+sudo nixos-rebuild switch --flake /etc/nixos#<hostname>
+```
+
+
