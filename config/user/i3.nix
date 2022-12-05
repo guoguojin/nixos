@@ -116,6 +116,7 @@ in {
             names = [ "SF Pro Display" "FontAwesome" ];
             size = 13.0;
           };
+          trayOutput = "none";
         }
       ];
     };
