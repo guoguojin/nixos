@@ -1,3 +1,5 @@
+# Configuration for installing i3wm
+
 { config, pkgs, ... }:
 
 {

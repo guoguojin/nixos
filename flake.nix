@@ -23,7 +23,7 @@
       rogue = lib.nixosSystem {
         inherit system;
         modules = [
-          ./config/configuration.nix
+          ./config/rogue/configuration.nix
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
