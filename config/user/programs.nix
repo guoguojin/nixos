@@ -9,5 +9,6 @@
     ./programs/tmux.nix
     ./programs/taskwarrior.nix
     ./programs/terminator.nix
+    ./programs/autorandr.nix
   ];
 }
