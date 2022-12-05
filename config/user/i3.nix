@@ -29,6 +29,7 @@ in {
       startup = [
         { command = "telegram-desktop -startintray"; notification = false; }
         { command = "slack -u"; notification = false; }
+        { command = "whatsapp-for-linux"; notification = false; }
         { command = "udiskie --tray"; notification = false; }
         { command = "udiskie-mount -a"; notification = false; }
         { command = "unclutter"; }
