@@ -4,8 +4,8 @@
 { config, lib, pkgs, ... }:
 
 {
-  # make sure the kernel module is loaded
-  boot.kernelModules = [ "evdi" ];
+  # make sure the kernel module is loaded in hardware-configuration.nix
+  # boot.kernelModules = [ "evdi" ];
 
   # add the displaylink video drivers for xserver
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
