@@ -1,5 +1,15 @@
 # Personal NixOS Configuration
 
+## Pre-requisites
+
+In order to install Displaylink drivers, we need to pre-fetch displaylink drivers from https://www.synaptics.com/sites/default/files/exe_files/2022-08/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu5.6.1-EXE.zip then rename the executable to `displaylink-561.zip` (or whatever the version currently is). Then use `nix-prefetch-url` to make it available to nix
+
+```bash
+nix-shell -p wget
+wget https://www.synaptics.com/sites/default/files/exe_files/2022-08/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu5.6.1-EXE.zip -o ~/Downloads/displaylink-561.zip
+nix-prefetch-url file://$HOME/Downloads/displaylink-561.zip
+```
+
 ## Instructions
 
 1. Create an EFI boot partition and label it `boot`
