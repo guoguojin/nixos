@@ -250,6 +250,7 @@
     gitflow
     poetry
     sublime4
+    libreoffice-fresh
   ];
 
   # This value determines the NixOS release from which the default
