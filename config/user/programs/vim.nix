@@ -100,7 +100,6 @@ silent! colorscheme night-owl
 
 set cursorline
 filetype plugin indent on
-hi Normal guibg=NONE ctermbg=NONE
 
 set t_Co=256
 set guioptions=egmrti
