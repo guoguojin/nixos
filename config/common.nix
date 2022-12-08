@@ -210,6 +210,7 @@
     nix-direnv
     zsh
     bash
+    gcc
     go
     gparted
     killall

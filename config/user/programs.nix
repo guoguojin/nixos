@@ -11,5 +11,6 @@
     ./programs/terminator.nix
     ./programs/autorandr.nix
     ./programs/git.nix
+    ./programs/vim.nix
   ];
 }
