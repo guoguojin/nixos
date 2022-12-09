@@ -252,6 +252,7 @@
     poetry
     sublime4
     libreoffice-fresh
+    docker-compose
   ];
 
   # This value determines the NixOS release from which the default
