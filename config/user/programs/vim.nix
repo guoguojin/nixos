@@ -6,6 +6,11 @@
     plugins = with pkgs.vimPlugins; [
       nerdtree
       vim-go
+      vim-which-key
+      splitjoin-vim
+      ultisnips
+      ctrlp-vim
+      ctrlp-z
     ];
 
     settings = {
@@ -74,6 +79,7 @@ set backspace=indent,eol,start
 
 "" Map leader to space
 let mapleader = ' '
+let maplocalleader = ','
 
 "" Searching
 set hlsearch
@@ -225,7 +231,9 @@ map <leader>a :cclose<CR>
 
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
+" Uncomment to disable warnings if gofmt finds any parse errors
+" let g:go_fmt_fail_silently = 1
+let g:go_test_timeout = '300s'
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -239,6 +247,20 @@ let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
+let g:go_metalinter_enabled = ['golint', 'vet', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = "30s"
+let g:go_def_mode = 'godef'
+" Automatically show type infomation when you move the cursor over a symbol
+let g:go_auto_type_info = 1
+" Automatically highlight variables with the same id
+let g:go_auto_sameids = 1
+" Use gopls for renaming
+let g:go_rename_command = 'gopls'
+
+" Set the go-info update time to 100ms
+set updatetime=100
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
@@ -275,6 +297,11 @@ augroup go
 
 augroup END
 
+"" Which key basic setup
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
+"" By default, WhichKey timeout len is set to 1000
+set timeoutlen=500
     '';
   };
 }
