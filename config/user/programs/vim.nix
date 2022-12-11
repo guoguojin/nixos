@@ -11,6 +11,7 @@
       ultisnips
       ctrlp-vim
       ctrlp-z
+      delimitMate
     ];
 
     settings = {
