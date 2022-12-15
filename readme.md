@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 
-In order to install Displaylink drivers, we need to pre-fetch displaylink drivers from https://www.synaptics.com/sites/default/files/exe_files/2022-08/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu5.6.1-EXE.zip then rename the executable to `displaylink-561.zip` (or whatever the version currently is). Then use `nix-prefetch-url` to make it available to nix
+In order to install Displaylink drivers, we need to pre-fetch displaylink drivers from [https://www.synaptics.com/sites/default/files/exe_files/2022-08/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu5.6.1-EXE.zip](https://www.synaptics.com/sites/default/files/exe_files/2022-08/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu5.6.1-EXE.zip) then rename the executable to `displaylink-561.zip` (or whatever the version currently is). Then use `nix-prefetch-url` to make it available to nix
 
 ```bash
 nix-shell -p wget
@@ -76,4 +76,26 @@ The above command when run with a flake is equivalent to:
 sudo nixos-rebuild switch --flake /etc/nixos#<hostname>
 ```
 
+## Adding system wide configurations
 
+To add system wide configurations, look up the configuration settings on [https://search.nixos.org/options?channel=unstable](https://search.nixos.org/options?channel=unstable).
+
+Create a new nix script under config and import the script in the configurations.nix file you want to add the configuration to.
+
+## Adding user specific application configurations (home-manager)
+
+To add user specific configurations that are managed by `home-manager`. Lookup the configuration settings you need on [https://rycee.gitlab.io/home-manager/options.html](https://rycee.gitlab.io/home-manager/options.html). Create a new nix script under `user/programs` and import the script in the `user/programs.nix` file you want to add the configuration to.
+
+If you want to create machine specific user configurations, add a new nix script under `config/<machine-name>` and point to it in the flake.nix file:
+
+```nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${user} = {
+              imports = [
+                ./config/<machine-name>/<your-home-config-file>.nix
+              ];
+            };
+          }
+```
