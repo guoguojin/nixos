@@ -253,6 +253,8 @@
     sublime4
     libreoffice-fresh
     docker-compose
+    universal-ctags
+    dstask
   ];
 
   # This value determines the NixOS release from which the default

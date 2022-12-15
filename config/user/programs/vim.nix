@@ -5,6 +5,7 @@
     enable = true;
     plugins = with pkgs.vimPlugins; [
       nerdtree
+      nerdtree-git-plugin
       vim-go
       vim-which-key
       splitjoin-vim
@@ -12,6 +13,12 @@
       ctrlp-vim
       ctrlp-z
       delimitMate
+      supertab
+      lightline-vim
+      fzf-vim
+      tagbar
+      ferret
+      vim-fugitive
     ];
 
     settings = {
@@ -55,6 +62,7 @@ endif
 call plug#begin(expand('~/.vim/plugged'))
 
 Plug 'haishanh/night-owl.vim'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -308,6 +316,35 @@ nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey ','<CR>
 "" By default, WhichKey timeout len is set to 1000
 set timeoutlen=500
+
+let g:lightline = {
+  \   'colorscheme': 'nightowl',
+  \   'active': {
+  \     'left':[ [ 'mode', 'paste' ],
+  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+  \     ]
+  \   },
+	\   'component': {
+	\     'lineinfo': ' %3l:%-2v',
+	\   },
+  \   'component_function': {
+  \     'gitbranch': 'FugitiveStatusline',
+  \   }
+  \ }
+
+let g:lightline.separator = {
+	\   'left': '', 'right': ''
+  \}
+
+let g:lightline.subseparator = {
+	\   'left': '', 'right': ''
+  \}
+
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+
     '';
   };
 }

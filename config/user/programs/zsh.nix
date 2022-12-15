@@ -11,7 +11,7 @@
       enableCompletion = true;
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" ];
+        plugins = [ "git" "taskwarrior" ];
       };
 
       initExtra = ''
