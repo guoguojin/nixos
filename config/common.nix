@@ -222,6 +222,7 @@
     rnix-lsp
     tdesktop
     terminator
+    libnotify
 
     gnome.gnome-keyring
     gnome.libgnome-keyring

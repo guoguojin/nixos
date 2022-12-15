@@ -20,7 +20,7 @@
           height = 50;
           offset = "(10, 50)";
           origin = "top-right";
-          font = "Cantarell 10";
+          font = "Cantarell 18";
           sort = true;
           follow = "mouse";
           show_indicators = true;
