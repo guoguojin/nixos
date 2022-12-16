@@ -12,5 +12,6 @@
     ./programs/autorandr.nix
     ./programs/git.nix
     ./programs/vim.nix
+    ./programs/z-lua.nix
   ];
 }

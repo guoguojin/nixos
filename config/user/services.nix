@@ -16,8 +16,8 @@
       enable = true;
       settings = {
         global = {
-          width = "(300, 600)";
-          height = 50;
+          width = "(300, 900)";
+          height = 250;
           offset = "(10, 50)";
           origin = "top-right";
           font = "Cantarell 18";
