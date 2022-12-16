@@ -197,6 +197,7 @@
       pip
       requests
       setuptools
+      pynvim
     ];
     python-with-packages = python3.withPackages python-packages;
   in
@@ -256,6 +257,8 @@
     docker-compose
     universal-ctags
     dstask
+    gnumake
+    nodejs
   ];
 
   # This value determines the NixOS release from which the default

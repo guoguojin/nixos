@@ -26,7 +26,7 @@
 
       envExtra = ''
         GOPATH=$HOME/go
-        PATH=$PATH:$GOPATH/bin
+        PATH=$GOPATH/bin:$HOME/.local/bin:$PATH
         GOPRIVATE=gitlab.com/alphaquants,gitlab.com/bl-go,gitlab.com/bl-alhambra,gitlab.com/bl-oakenfield,gitlab.com/bl-paladin,gitlab.com/birchwoodlangham,gitlab.com/gobl
         DOCKER_BUILDKIT=1
         XZ_OPT="-T0"
