@@ -8,11 +8,22 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  # Set per machine depending on hardware
+  nix.settings = {
+    max-jobs = 8;
+    cores = 8;
+  };
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "evdi" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ "i915.enable_psr=0" ];
+
+  boot.kernel.sysctl = {
+    # set file limit for IntelliJ IDEs
+    "fs.notify.max_user_watches" = 524288;
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/root";
