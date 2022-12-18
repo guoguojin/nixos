@@ -15,13 +15,29 @@
       };
 
       initExtra = ''
-      # Source powerlevel10k
-      [[ -f ${config.xdg.configHome}/zsh/p10k.zsh ]] && source ${config.xdg.configHome}/zsh/p10k.zsh
-      [[ -f ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme ]] && source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+# Source powerlevel10k
+[[ -f ${config.xdg.configHome}/zsh/p10k.zsh ]] && source ${config.xdg.configHome}/zsh/p10k.zsh
+[[ -f ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme ]] && source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
-      # Personal zsh plugins
-      [[ -f ${config.xdg.configHome}/zsh/java_version.zsh ]] && source ${config.xdg.configHome}/zsh/java_version.zsh
-      [[ -f ${config.xdg.configHome}/zsh/task.zsh ]] && source ${config.xdg.configHome}/zsh/task.zsh
+# Personal zsh plugins
+[[ -f ${config.xdg.configHome}/zsh/java_version.zsh ]] && source ${config.xdg.configHome}/zsh/java_version.zsh
+[[ -f ${config.xdg.configHome}/zsh/task.zsh ]] && source ${config.xdg.configHome}/zsh/task.zsh
+
+exit () {
+	if [[ -z $TMUX ]]; then
+		builtin exit
+		return
+	fi
+
+	panes=$(tmux list-panes | wc -l)
+	wins=$(tmux list-windows | wc -l)
+	count=$(($panes + $wins -1))
+	if [ $count -eq 1 ]; then
+		tmux detach
+	else
+		builtin exit
+	fi
+}
       '';
 
       envExtra = ''
