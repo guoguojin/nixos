@@ -27,6 +27,15 @@
     '';
   };
 
+  # Allow unfree packages
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreeRedistributable = true;
+    };
+    overlays = import ./overlays;
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -137,9 +146,6 @@
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # required to make i3blocks to work
   environment.pathsToLink = [
     "/libexec"
@@ -238,8 +244,8 @@
     lxappearance
     font-manager
     alacritty
-    jetbrains.goland
     jetbrains.idea-ultimate
+    jetbrains.goland
     jetbrains.datagrip
     jetbrains.pycharm-professional
     neovim
@@ -259,6 +265,9 @@
     dstask
     gnumake
     nodejs
+    sumneko-lua-language-server
+    rust-analyzer
+    unzip
   ];
 
   # This value determines the NixOS release from which the default
