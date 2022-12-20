@@ -12,6 +12,8 @@
           };
         };
         blocks = [
+          # Information about what blocks are available can be found:
+          # https://github.com/greshake/i3status-rust/blob/v0.22.0/doc/blocks.md
           {
             block = "weather";
             service = {
