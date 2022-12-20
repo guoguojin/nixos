@@ -279,6 +279,7 @@
     gopls
     tree
     pre-commit
+    mosh
   ];
 
   # This value determines the NixOS release from which the default
