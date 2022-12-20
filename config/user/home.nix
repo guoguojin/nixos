@@ -23,6 +23,14 @@ in {
     homeDirectory = "/home/${user}";
     stateVersion = "22.11";
 
+    sessionVariables = {
+      GOPATH = "$HOME/go";
+      GOPRIVATE = "gitlab.com/gobl,gitlab.com/gofp,gitlab.com/oakenfield-services";
+      PATH = "${config.home.sessionVariables.GOPATH}/bin:$HOME/.local/bin:$PATH";
+      DOCKER_BUILDKIT = "1";
+      XZ_OPT = "-T0";
+    };
+
     packages = with pkgs; [
       rustup
       google-chrome

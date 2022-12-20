@@ -150,6 +150,11 @@
   environment.pathsToLink = [
     "/libexec"
   ];
+
+  # Environment variables that should be persistent across all sessions.
+  # environment.sessionVariables = {
+  #   GOPRIVATE = "gitlab.com/gobl,gitlab.com/gofp,gitlab.com/oakenfield-services";
+  # };
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -236,6 +241,7 @@
 
     minikube
     kubectl
+    kubernetes-helm
     spotify
     dropbox
     dropbox-cli
@@ -268,6 +274,11 @@
     sumneko-lua-language-server
     rust-analyzer
     unzip
+    buf
+    oapi-codegen
+    gopls
+    tree
+    pre-commit
   ];
 
   # This value determines the NixOS release from which the default

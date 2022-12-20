@@ -19,8 +19,8 @@
         scrolling.history = 100000;
         font = {
           normal = {
-            family = "Monofur Nerd Font Mono";
-            style = "Book";
+            family = "CaskaydiaCove Nerd Font Mono";
+            style = "Light";
           };
           size = 8.0;
         };

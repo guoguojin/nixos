@@ -40,12 +40,9 @@ exit () {
 }
       '';
 
+      # Add additional environment variables to the Zsh environment
+      # e.g. GOPATH=$HOME/go
       envExtra = ''
-        GOPATH=$HOME/go
-        PATH=$GOPATH/bin:$HOME/.local/bin:$PATH
-        GOPRIVATE=gitlab.com/alphaquants,gitlab.com/bl-go,gitlab.com/bl-alhambra,gitlab.com/bl-oakenfield,gitlab.com/bl-paladin,gitlab.com/birchwoodlangham,gitlab.com/gobl
-        DOCKER_BUILDKIT=1
-        XZ_OPT="-T0"
       '';
 
       shellAliases = {
