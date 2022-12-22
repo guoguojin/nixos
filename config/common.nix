@@ -209,6 +209,9 @@
       requests
       setuptools
       pynvim
+      autopep8
+      yapf
+      pytest
     ];
     python-with-packages = python3.withPackages python-packages;
   in
@@ -280,6 +283,8 @@
     tree
     pre-commit
     mosh
+    black
+    pandoc
   ];
 
   # This value determines the NixOS release from which the default
