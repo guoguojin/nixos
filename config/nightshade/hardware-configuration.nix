@@ -53,6 +53,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home/tanq/code/work/vega" =
+    { device = "/dev/disk/by-label/vega";
+      fsType = "ext4";
+    };
+
   swapDevices = [
     { device = "/dev/disk/by-label/swap"; }
   ];

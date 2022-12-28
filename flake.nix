@@ -58,7 +58,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${user} = {
               imports = [
-                ./config/home.nix
+                ./config/nightshade/home.nix
               ];
             };
           }
