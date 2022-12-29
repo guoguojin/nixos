@@ -3,7 +3,7 @@
 {
   imports = [
     ../../shared/home.nix
-    ./programs.nix
+    ../../shared/programs.nix
     ../../shared/services.nix
     ../../shared/i3.nix
   ];

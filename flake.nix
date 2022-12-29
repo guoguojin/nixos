@@ -26,7 +26,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${user} = {
               imports = [
-                ./config/home.nix
+                ./config/rogue/home.nix
               ];
             };
           }
@@ -42,7 +42,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${user} = {
               imports = [
-                ./config/home.nix
+                ./config/songbird/home.nix
               ];
             };
           }
