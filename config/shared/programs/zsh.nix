@@ -43,6 +43,7 @@ exit () {
       # Add additional environment variables to the Zsh environment
       # e.g. GOPATH=$HOME/go
       envExtra = ''
+        NPM_CONFIG_PREFIX=$HOME/.npm-global
       '';
 
       shellAliases = {
