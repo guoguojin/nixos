@@ -16,4 +16,6 @@
 
   # And define the hostname
   networking.hostName = "songbird"; # Define your hostname.
+
+  services.picom.enable = true;
 }

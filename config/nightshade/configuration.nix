@@ -14,4 +14,11 @@
     ];
 
   networking.hostName = "nightshade"; # Define your hostname.
+
+  services.picom = {
+    enable = true;
+    backend = "glx";
+    vSync = true;
+  };
+
 }

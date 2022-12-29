@@ -121,7 +121,6 @@
     #media-session.enable = true;
   };
 
-  services.picom.enable = true;
 
   xdg.portal = {
     enable = true;
