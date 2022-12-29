@@ -25,7 +25,7 @@
           background_type = "transparent";
           copy_on_selection = true;
           cursor_color = "#aaaaaa";
-          font = "Monofur Nerd Font Mono 13";
+          font = "CaskaydiaCove Nerd Font SemiLight 12";
           foreground_color = "#ffffff";
 
           palette = "#2e3436:#ef5350:#80cbc4:#ffeb95:#82aaff:#c792ea:#addb67:#d3d7cf:#555753:#ef5350:#80cbc4:#ffeb95:#82aaff:#c792ea:#addb67:#eeeeec";
