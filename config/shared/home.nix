@@ -26,7 +26,7 @@ in {
     sessionVariables = {
       GOPATH = "$HOME/go";
       GOPRIVATE = "gitlab.com/gobl,gitlab.com/gofp,gitlab.com/oakenfield-services";
-      PATH = "${config.home.sessionVariables.GOPATH}/bin:$HOME/.local/bin:$PATH";
+      PATH = "${config.home.sessionVariables.GOPATH}/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH";
       DOCKER_BUILDKIT = "1";
       XZ_OPT = "-T0";
     };

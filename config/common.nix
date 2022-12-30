@@ -211,8 +211,13 @@
       autopep8
       yapf
       pytest
+      flake8
     ];
     python-with-packages = python3.withPackages python-packages;
+    lua-packages = lua-packages: with lua-packages; [
+      luarocks
+    ];
+    lua-with-packages = lua.withPackages lua-packages;
   in
   [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -284,6 +289,11 @@
     mosh
     black
     pandoc
+
+    tree-sitter
+    lua-with-packages
+    sumneko-lua-language-server
+    luaformatter
   ];
 
   # This value determines the NixOS release from which the default

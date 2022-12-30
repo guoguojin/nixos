@@ -17,7 +17,10 @@
 
   services.picom = {
     enable = true;
-    backend = "glx";
+    backend = "xrender";
+    settings = {
+      unredir-if-possible = false;
+    };
     vSync = true;
   };
 
