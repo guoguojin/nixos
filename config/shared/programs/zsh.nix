@@ -38,6 +38,8 @@ exit () {
 		builtin exit
 	fi
 }
+
+eval "$(direnv hook zsh)"
       '';
 
       # Add additional environment variables to the Zsh environment
