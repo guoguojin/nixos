@@ -279,7 +279,6 @@
     gnumake
     nodejs
     sumneko-lua-language-server
-    rust-analyzer
     unzip
     buf
     oapi-codegen
@@ -294,6 +293,17 @@
     lua-with-packages
     sumneko-lua-language-server
     luaformatter
+
+    # for rust
+    llvm
+    bintools
+    zlib
+    xorriso
+    lld
+    lldb
+    glibc
+    rustup
+    rust-analyzer
   ];
 
   # This value determines the NixOS release from which the default

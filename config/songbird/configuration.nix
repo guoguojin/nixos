@@ -18,4 +18,12 @@
   networking.hostName = "songbird"; # Define your hostname.
 
   services.picom.enable = true;
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+  };
+
+  users.extraGroups.vboxusers.members = [ "tanq" ];
 }

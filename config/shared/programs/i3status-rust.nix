@@ -84,6 +84,12 @@
             format = "{barchart} {utilization} {frequency}";
           }
           {
+            block = "temperature";
+            collapsed = false;
+            interval = 10;
+            chip = "*-isa-*";
+          }
+          {
             block = "load";
             interval = 1;
             format = "{1m}";

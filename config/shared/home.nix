@@ -32,7 +32,6 @@ in {
     };
 
     packages = with pkgs; [
-      rustup
       google-chrome
       brave
       lastpass-cli
