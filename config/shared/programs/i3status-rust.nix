@@ -8,7 +8,7 @@
         icons = "awesome6";
         settings = {
           theme = {
-            name = "solarized-dark";
+            name = "slick";
           };
         };
         blocks = [
@@ -54,7 +54,13 @@
             ];
           }
           {
-            block = "net";
+            block = "networkmanager";
+            on_click = "nm-connection-editor";
+            interface_name_exclude = ["docker\\d+"];
+          }
+          {
+            block = "external_ip";
+            format = "{ip} {region_code} {country}";
           }
           { 
             block = "time"; 
