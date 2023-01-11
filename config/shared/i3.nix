@@ -108,6 +108,29 @@ in {
             size = 13.0;
           };
           trayOutput = "primary";
+          colors = {
+            background = "#011627";
+            statusline = "#eeeeee";
+            separator = "666666";
+
+            focusedWorkspace = {
+              border = "#a9a9a9";
+              background = "#018eeb";
+              text = "#eeeeee";
+            };
+
+            inactiveWorkspace = {
+              border = "#a9a9a9";
+              background = "#222222";
+              text = "#a9a9a9";
+            };
+
+            urgentWorkspace = {
+              border = "#a9a9a9";
+              background = "#d42121";
+              text = "#ffffff";
+            };
+          };
         }
         {
           position = "bottom";
@@ -118,6 +141,11 @@ in {
             size = 13.0;
           };
           trayOutput = "none";
+          colors = {
+            background = "#011627";
+            statusline = "#eeeeee";
+            separator = "666666";
+          };
         }
       ];
     };

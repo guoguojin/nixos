@@ -73,7 +73,7 @@
         icons = "awesome6";
         settings = {
           theme = {
-            name = "solarized-dark";
+            name = "slick";
           };
         };
         blocks = [
