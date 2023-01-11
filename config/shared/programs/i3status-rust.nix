@@ -18,11 +18,10 @@
             block = "weather";
             service = {
               name = "openweathermap";
-              api_key = "527ec635dd54975dc2d620552562ace7";
-              city_id = "2652618";
               units = "metric";
             };
             autolocate = true;
+            format = "{weather} @ {location} {temp}, {wind} m/s {direction}";
           }
           {
             block = "music";
