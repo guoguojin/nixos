@@ -15,6 +15,18 @@
           # Information about what blocks are available can be found:
           # https://github.com/greshake/i3status-rust/blob/v0.22.0/doc/blocks.md
           {
+            block = "focused_window";
+          }
+          {
+            block = "pacman";
+            interval = 3600;
+            format = "$pacman Updates + $aur AUR";
+            format_singular = "$both Updates";
+            format_up_to_date = "Up to date";
+            critical_updates_regex = "(linux|linux-lts|systemd|mesa)";
+            aur_command = "yay -Qua";
+          }
+          {
             block = "weather";
             service = {
               name = "openweathermap";
@@ -54,9 +66,14 @@
             ];
           }
           {
-            block = "networkmanager";
+            block = "net";
             on_click = "nm-connection-editor";
+            format = "$icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) $signal_strength $ip ";
             interface_name_exclude = ["docker\\d+"];
+            click = {
+              button = "left";
+              cmd = "nm-connection-editor";
+            };
           }
           {
             block = "external_ip";

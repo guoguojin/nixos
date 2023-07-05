@@ -1,5 +1,5 @@
 {
-  description = "A NixOS installation flake for my Framework laptop";
+  description = "A NixOS installation flake for my computer systems";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -27,6 +27,22 @@
             home-manager.users.${user} = {
               imports = [
                 ./config/rogue/home.nix
+              ];
+            };
+          }
+        ];
+      };
+      hawkeye = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./config/hawkeye/configuration.nix
+
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${user} = {
+              imports = [
+                ./config/hawkeye/home.nix
               ];
             };
           }

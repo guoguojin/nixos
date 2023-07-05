@@ -14,18 +14,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/0ff749a3-9c0a-4833-b496-25d6cd91e6b2";
+    { device = "/dev/disk/by-label/root";
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8830-84F6";
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/01c41657-1645-454e-8190-e25c145c5f03"; }
-    ];
+  swapDevices = [ 
+    { device = "/dev/disk/by-label/swap"; }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -37,4 +37,7 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # enable logitech hardware and solaar
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;  # required for Solaar
 }
