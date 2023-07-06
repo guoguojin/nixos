@@ -31,6 +31,8 @@ exit () {
 	fi
 }
 
+gpgconf --launch gpg-agent
+
 eval "$(direnv hook zsh)"
 eval "$(oh-my-posh init zsh)"
       '';
@@ -39,6 +41,7 @@ eval "$(oh-my-posh init zsh)"
       # e.g. GOPATH=$HOME/go
       envExtra = ''
         NPM_CONFIG_PREFIX=$HOME/.npm-global
+        GPG_TTY=$(tty)
       '';
 
       shellAliases = {
