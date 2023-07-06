@@ -51,18 +51,22 @@ nix-prefetch-url file://$HOME/Downloads/displaylink-561.zip
     git clone https://github.com/guoguojin/nixos.git /path/to/clone-to
     ```
 
-10. Symlink the `flake.nix` and `flake.lock` in `/mnt/etc/nixos`
+10. Navigate to the folder you just cloned:
 
     ```bash
-    sudo ln -s /path/to/clone-to/flake.nix /mnt/etc/nixos/flake.nix
-    sudo ln -s /path/to/clone-to/flake.lock /mnt/etc/nixos/flake.lock
+    cd /path/to/clone-to
     ```
 
 11. Install NixOS
 
     ```bash
-    nixos-install --flake /mnt/etc/nixos#<profile-to-install>
+    nixos-install --flake .#<profile-to-install>
     ```
+
+    This will use the specified profile and flake to install the system. You will be prompted for a root password
+    for the system. Enter the password you want to use and repeat when prompted.
+
+12. When finished reboot the machine. Log in and remember to change the user password. 
 
 ## Post install
 

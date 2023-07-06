@@ -9,7 +9,7 @@ in {
       fonts = {
         names = ["SF Pro Display"];
         style = "Light";
-        size = 11.0;
+        size = 12.0;
       };
 
       defaultWorkspace = "workspace number 1";
@@ -24,7 +24,7 @@ in {
         outer = 5;
       };
 
-      terminal = "alacritty";
+      terminal = "kitty";
 
       startup = [
         { command = "telegram-desktop -startintray"; notification = false; }

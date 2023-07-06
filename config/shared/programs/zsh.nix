@@ -15,14 +15,6 @@
       };
 
       initExtra = ''
-# Source powerlevel10k
-[[ -f ${config.xdg.configHome}/zsh/p10k.zsh ]] && source ${config.xdg.configHome}/zsh/p10k.zsh
-[[ -f ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme ]] && source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-
-# Personal zsh plugins
-[[ -f ${config.xdg.configHome}/zsh/java_version.zsh ]] && source ${config.xdg.configHome}/zsh/java_version.zsh
-[[ -f ${config.xdg.configHome}/zsh/task.zsh ]] && source ${config.xdg.configHome}/zsh/task.zsh
-
 exit () {
 	if [[ -z $TMUX ]]; then
 		builtin exit
@@ -40,6 +32,7 @@ exit () {
 }
 
 eval "$(direnv hook zsh)"
+eval "$(oh-my-posh init zsh)"
       '';
 
       # Add additional environment variables to the Zsh environment
@@ -112,7 +105,6 @@ eval "$(direnv hook zsh)"
         enable = true;
         plugins = [
           { name = "zsh-users/zsh-autosuggestions"; }
-          { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
         ];
       };
     };

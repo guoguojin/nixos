@@ -120,15 +120,15 @@
   services.xserver.libinput.touchpad.naturalScrolling = true;
   services.xserver.libinput.mouse.naturalScrolling = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to reset the password with ‘passwd’ after your first login.
   users.users.tanq = {
     isNormalUser = true;
     description = "Tan Quach";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
+    initialHashedPassword = "$y$j9T$O8UhqhbK5TrAGRfOwJsOg0$OoH7P05aqaEzlC/LVNps8DrU5v87drFDn52Nfss04Q/";
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
-    #  thunderbird
     ];
   };
 
@@ -201,6 +201,7 @@
       yapf
       pytest
       flake8
+      pyenv
     ];
     python-with-packages = python3.withPackages python-packages;
     lua-packages = lua-packages: with lua-packages; [
@@ -265,7 +266,7 @@
     dstask
     gnumake
     nodejs
-    sumneko-lua-language-server
+    lua-language-server
     unzip
     buf
     oapi-codegen
@@ -275,10 +276,8 @@
     mosh
     black
     pandoc
-
     tree-sitter
     lua-with-packages
-    sumneko-lua-language-server
     luaformatter
 
     # for rust
@@ -290,7 +289,14 @@
     lldb
     glibc
     rustup
-    rust-analyzer
+    
+    fakeroot
+    xsel
+    ripgrep
+    exa
+    bat
+    fd
+    youtube-dl
   ];
 
   # This value determines the NixOS release from which the default

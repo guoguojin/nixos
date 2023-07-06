@@ -21,7 +21,7 @@ in {
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
-    stateVersion = "22.11";
+    stateVersion = "23.05";
 
     sessionVariables = {
       GOPATH = "$HOME/go";

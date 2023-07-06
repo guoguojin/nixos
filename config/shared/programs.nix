@@ -4,7 +4,6 @@
   imports = [
     ./programs/zsh.nix
     ./programs/vscode.nix
-    ./programs/i3status-rust.nix
     ./programs/alacritty.nix
     ./programs/tmux.nix
     ./programs/taskwarrior.nix
@@ -12,6 +11,10 @@
     ./programs/autorandr.nix
     ./programs/git.nix
     ./programs/vim.nix
-    ./programs/z-lua.nix
+    ./programs/nushell.nix
+    ./programs/omp.nix
+    ./programs/zoxide.nix
+    ./programs/kitty.nix
+    ./programs/direnv.nix
   ];
 }

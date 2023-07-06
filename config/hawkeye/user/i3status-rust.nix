@@ -18,70 +18,69 @@
             block = "focused_window";
           }
           {
-            block = "pacman";
-            interval = 3600;
-            format = "$pacman Updates + $aur AUR";
-            format_singular = "$both Updates";
-            format_up_to_date = "Up to date";
-            critical_updates_regex = "(linux|linux-lts|systemd|mesa)";
-            aur_command = "yay -Qua";
-          }
-          {
             block = "weather";
+            format = " $icon $weather @ $location $temp, $wind m/s $direction ";
+            autolocate = true;
             service = {
               name = "openweathermap";
               units = "metric";
+              city_id = "2652618";
             };
-            autolocate = true;
-            format = "{weather} @ {location} {temp}, {wind} m/s {direction}";
           }
           {
             block = "music";
             player = "spotify";
-            buttons = [ "play" "next" ];
-            on_collapsed_click = "spotify";
-          }
-          {
-            block = "backlight";
-            device = "intel_backlight";
-          }
-          {
-            block = "battery";
-            interval = 10;
-            format = "{percentage:6#100} {percentage} {time}";
+            click = [
+              {
+                button = "left";
+                action = "play_pause";
+              }
+              {
+                button = "up";
+                action = "volume_up";
+              }
+              {
+                button = "down";
+                action = "volume_down";
+              }
+              {
+                button = "forward";
+                action = "seek_forward";
+              }
+              {
+                button = "back";
+                action = "seek_backward";
+              }
+            ];
           }
           {
             block = "taskwarrior";
-            interval = 60;
-            format = "{count} open tasks ({filter_name})";
-            format_singular = "{count} open task ({filter_name})";
-            format_everything_done = "All done!";
-            warning_threshold = 10;
             critical_threshold = 20;
+            format = " $count open tasks ($filter_name) ";
+            format_everything_done = " $icon  All done! ";
+            format_singular = " $icon $count open task ($filter_name) ";
+            interval = 60;
+            warning_threshold = 10;
+            data_location = "/home/tanq/.local/share/task";
             filters = [
               {
                 name = "today";
-                filter = "+PENDING +OVERDUE or +DUETODAY";
+                filter = "+PENDING +OVERDUE +DUETODAY";
               }
             ];
           }
           {
             block = "net";
-            on_click = "nm-connection-editor";
             format = "$icon ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K) $signal_strength $ip ";
-            interface_name_exclude = ["docker\\d+"];
+            device = "wlp3s0";
             click = [{
               button = "left";
               cmd = "nm-connection-editor";
             }];
           }
-          {
-            block = "external_ip";
-            format = "{ip} {region_code} {country}";
-          }
           { 
             block = "time"; 
-            format = "%a %d/%m %R";
+            format = " $icon $timestamp.datetime(f:'%a %d/%m %R') ";
             interval = 60; 
           }
         ];
@@ -96,25 +95,22 @@
         blocks = [
           {
             block = "memory";
-            display_type = "memory";
-            format_mem = "{mem_used}/{mem_total}({mem_used_percents})";
-            format_swap = "{swap_used}/{swap_total}({swap_used_percents})";
+            format = "$mem_used/$mem_total($mem_used_percents)";
+            format_alt = "$swap_used/$swap_total($swap_used_percents)";
           }
           {
             block = "cpu";
             interval = 1;
-            format = "{barchart} {utilization} {frequency}";
+            format = "$barchart $utilization $frequency";
           }
           {
             block = "temperature";
-            collapsed = false;
             interval = 10;
-            chip = "*-isa-*";
           }
           {
             block = "load";
             interval = 1;
-            format = "{1m}";
+            format = " $icon 1 min avg. $1m.eng(w:4) ";
           }
           {
             block = "sound";
@@ -122,22 +118,10 @@
           {
             block = "disk_space";
             path = "/";
-            alias = "/";
+            format = "$icon / $used/$total";
             info_type = "available";
-            unit = "GB";
+            alert_unit = "GB";
             interval = 60;
-            warning = 20.0;
-            alert = 10.0;
-          }
-          {
-            block = "disk_space";
-            path = "/home/tanq/code";
-            alias = "code";
-            info_type = "available";
-            unit = "GB";
-            interval = 60;
-            warning = 20.0;
-            alert = 10.0;
           }
           {
             block = "uptime";
