@@ -12,52 +12,73 @@ nix-prefetch-url file://$HOME/Downloads/displaylink-561.zip
 
 ## Instructions
 
-1. Create an EFI boot partition and label it `boot`
-2. Create a root partition and label it `root`
-3. Create a swap partition and label it `swap`
-4. Mount the root partition to `/mnt`
+The easiest way to install NixOS using this flake is to download a NixOS LiveCD Installer from 
+[https://nixos.org/download.html](https://nixos.org/download.html). Once you have booted into the installer
+and connected to the Internet (You will not be able to install from a flake without an internet connection),
+make sure you have exited the Calamares installer.
+
+Use GParted or a CLI disk partitioner to prepare your disks, you will need the following:
+
+1. Create an EFI boot partition formatted to `FAT32` and label it `boot`
+2. Create a root partition formatted to `EXT4` and label it `root`
+3. Create a swap partition formatted to `linuxswap` and label it `swap`
+
+> Note: if you want to format the root partition to something other than `EXT4`, you can do so, but you need
+  to update the hardware-configuration.nix for the machine definition accordingly.
+
+1. Open up a terminal.
+
+2. Mount the root partition to `/mnt`
 
     ```bash
     mount /dev/disk/by-label/root /mnt
     ```
 
-5. Create the boot mount folder
+3. Create the boot mount folder
 
     ```bash
     mkdir /mnt/boot/efi
     ```
 
-6. Mount the boot partition to `/mnt/boot/efi`
+4. Mount the boot partition to `/mnt/boot/efi`
 
     ```bash
     mount /dev/disk/by-label/boot /mnt/boot/efi
     ```
 
-7. Enable the swap partition
+5. Enable the swap partition
 
     ```bash
     swapon /dev/disk/by-label/swap
     ```
 
-8. Enable Git and Nix Flakes
+6. Enable Git and Nix Flakes
 
     ```bash
     nix-shell -p git nixFlakes
     ```
 
-9. Clone this repository
+7. Clone this repository
 
     ```bash
     git clone https://github.com/guoguojin/nixos.git /path/to/clone-to
     ```
 
-10. Navigate to the folder you just cloned:
+    > NOTE: If you clone the folder into a volatile path (i.e. a path that will not be available after you have
+    installed NixOS), you will need to clone the repo again after the install is completed and you have rebooted
+    in order to update your system with the flake.<br/>
+    </br>
+    Alternatively, you should clone this into the mounted volume so you can access it again after you have 
+    installed NixOS.
+
+
+8. Navigate to the folder you just cloned:
 
     ```bash
     cd /path/to/clone-to
     ```
 
-11. Install NixOS
+9. Install NixOS
 
     ```bash
     nixos-install --flake .#<profile-to-install>
@@ -66,9 +87,18 @@ nix-prefetch-url file://$HOME/Downloads/displaylink-561.zip
     This will use the specified profile and flake to install the system. You will be prompted for a root password
     for the system. Enter the password you want to use and repeat when prompted.
 
-12. When finished reboot the machine. Log in and remember to change the user password. 
+10. When finished reboot the machine. Log in and remember to change the user password.
 
 ## Post install
+
+After you have logged in and you have changed your password, you should create a sym link to the flake.nix and 
+flake.lock file in /etc/nixos. As previously mentioned, you may need to clone this repository again after you
+have completed the install if you had originally cloned it to a volatile file system (i.e. the install LiveCD).
+
+```bash
+sudo ln -s /path/to/clone-to/flake.nix /etc/nixos/flake.nix
+sudo ln -s /path/to/clone-to/flake.lock /etc/nixos/flake.lock
+```
 
 To modify the build, edit the flake files, then run `sudo nixos-rebuild switch`.
 
@@ -80,11 +110,16 @@ The above command when run with a flake is equivalent to:
 sudo nixos-rebuild switch --flake /etc/nixos#<hostname>
 ```
 
+The location of this repo will not matter as long as the `flake.nix` and `flake.lock` files are symlinked 
+to `/etc/nixos`
+
 ## Adding system wide configurations
 
 To add system wide configurations, look up the configuration settings on [https://search.nixos.org/options?channel=unstable](https://search.nixos.org/options?channel=unstable).
 
 Create a new nix script under config and import the script in the configurations.nix file you want to add the configuration to.
+
+See the `nvidia` nix configuration files or `steam.nix` for examples.
 
 ## Adding user specific application configurations (home-manager)
 
@@ -93,13 +128,28 @@ To add user specific configurations that are managed by `home-manager`. Lookup t
 If you want to create machine specific user configurations, add a new nix script under `config/<machine-name>` and point to it in the flake.nix file:
 
 ```nix
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = {
-              imports = [
-                ./config/<machine-name>/<your-home-config-file>.nix
-              ];
-            };
-          }
+home-manager.nixosModules.home-manager {
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.${user} = {
+    imports = [
+      ./config/<machine-name>/<your-home-config-file>.nix
+    ];
+  };
+}
 ```
+
+## Variety Wallpaper Changer
+
+The variety wallpaper changer will not correctly show wallpapers if you are using i3 because the session is called
+`none+i3` and not just `i3` which is what the `set_wallpaper` script checks for.
+
+To get the set_wallpaper working correctly: 
+
+1. Find the `set_wallpaper` script - typically it is in `$XDG_CONFIG_HOME/variety/scripts/`. 
+2. Find the line that defines the `SIMPLE_WMS` list. You should see `i3` along with `bspwm`, `dwm`, `xmonad` etc.
+   listed with it.
+3. Add `none+i3` as the first entry in the list.
+4. Save the file.
+
+Now when you update the wallpaper it should display correctly.
