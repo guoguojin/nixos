@@ -23,6 +23,11 @@
       fsType = "vfat";
     };
 
+  fileSystems."/home/tanq/code" =
+    { device = "/dev/disk/by-label/minisforum";
+      fsType = "ext4";
+    };
+
   swapDevices = [ 
     { device = "/dev/disk/by-label/swap"; }
   ];
