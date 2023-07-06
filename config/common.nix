@@ -54,8 +54,11 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the XFCE Desktop Environment.
+  # SDDM because LightDM can be a fickle bitch
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.theme = "chili";
+
+  # Enable the XFCE Desktop Environment.
   # By default we'll set Xfce as our desktop environment 
   # and we can pull in the i3 configuration if we want to use
   # i3 instead. 
@@ -297,6 +300,7 @@
     bat
     fd
     youtube-dl
+    sddm-chili-theme
   ];
 
   # This value determines the NixOS release from which the default
