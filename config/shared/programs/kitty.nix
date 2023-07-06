@@ -56,8 +56,6 @@
       #: white
       color7 =  "#ffffff";
       color15 = "#ffffff";
-
-      shell = "nu";
     };
   };
 }

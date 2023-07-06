@@ -18,22 +18,13 @@
             block = "focused_window";
           }
           {
-            block = "pacman";
-            interval = 3600;
-            format = "$pacman Updates + $aur AUR";
-            format_singular = "$both Updates";
-            format_up_to_date = "Up to date";
-            critical_updates_regex = "(linux|linux-lts|systemd|mesa)";
-            aur_command = "yay -Qua";
-          }
-          {
             block = "weather";
             service = {
               name = "openweathermap";
               units = "metric";
             };
             autolocate = true;
-            format = "{weather} @ {location} {temp}, {wind} m/s {direction}";
+            format = " {weather} @ {location} {temp}, {wind} m/s {direction} ";
           }
           {
             block = "music";

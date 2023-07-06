@@ -7,7 +7,7 @@ in {
     config = {
       modifier = mod;
       fonts = {
-        names = ["SF Pro Display"];
+        names = ["Noto Sans Light"];
         style = "Light";
         size = 12.0;
       };
@@ -38,6 +38,9 @@ in {
         { command = "variety"; notification = false; }
         { command = "dropbox"; notification = false; }
         { command = "autorandr -c"; notification = false; }
+        { command = "pasystray"; }
+        { command = "blueberry-tray"; }
+        { command = "nm-applet"; }
       ];
 
       assigns = {
@@ -104,7 +107,7 @@ in {
           position = "top";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
           fonts = {
-            names = [ "SF Pro Display" "FontAwesome" ];
+            names = [ "Noto Sans Light" "FontAwesome" ];
             size = 13.0;
           };
           trayOutput = "primary";
@@ -137,7 +140,7 @@ in {
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
           workspaceButtons = false;
           fonts = {
-            names = [ "SF Pro Display" "FontAwesome" ];
+            names = [ "Noto Sans Light" "FontAwesome" ];
             size = 13.0;
           };
           trayOutput = "none";

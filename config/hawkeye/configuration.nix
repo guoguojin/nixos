@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../common.nix
       ../i3.nix
+      ../steam.nix
     ];
 
   networking.hostName = "hawkeye"; # Define your hostname.
