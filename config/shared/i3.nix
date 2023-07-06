@@ -7,7 +7,7 @@ in {
     config = {
       modifier = mod;
       fonts = {
-        names = ["Noto Sans Light"];
+        names = ["Noto Sans Display"];
         style = "Light";
         size = 12.0;
       };
@@ -22,6 +22,11 @@ in {
       gaps = {
         inner = 5;
         outer = 5;
+      };
+
+      window = {
+        hideEdgeBorders = "smart";
+        titlebar = false;
       };
 
       terminal = "kitty";
