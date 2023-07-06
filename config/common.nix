@@ -301,6 +301,7 @@
     fd
     youtube-dl
     sddm-chili-theme
+    catppuccin-gtk
   ];
 
   # This value determines the NixOS release from which the default

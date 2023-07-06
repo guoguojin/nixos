@@ -10,6 +10,8 @@
         vscode-extensions.vscodevim.vim
         vscode-extensions.github.copilot
         vscode-extensions.eamodio.gitlens
+        vscode-extensions.catppuccin.catppuccin-vsc
+        vscode-extensions.catppuccin.catppuccin-vsc-icons
       ];
     };
   };
