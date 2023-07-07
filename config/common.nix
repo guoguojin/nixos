@@ -209,6 +209,7 @@
 
     # common coding
     git
+    lazygit
     gcc
     gitflow
     gnumake
