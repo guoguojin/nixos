@@ -12,6 +12,8 @@
       enableSshSupport = true;
     };
 
+    dropbox.enable = true;
+
     dunst = {
       enable = true;
       settings = {

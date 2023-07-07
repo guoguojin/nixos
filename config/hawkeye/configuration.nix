@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
       ../common.nix
       ../i3.nix
+      ../go.nix
+      ../rust.nix
+      ../python.nix
+      ../lua.nix
+      ../jetbrains.nix
+      ../kubernetes.nix
       ../steam.nix
     ];
 

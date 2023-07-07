@@ -193,115 +193,78 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; 
-  let
-    python-packages = python-packages: with python-packages; [
-      pip
-      requests
-      setuptools
-      pynvim
-      autopep8
-      yapf
-      pytest
-      flake8
-      pyenv
-    ];
-    python-with-packages = python3.withPackages python-packages;
-    lua-packages = lua-packages: with lua-packages; [
-      luarocks
-    ];
-    lua-with-packages = lua.withPackages lua-packages;
-  in
-  [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+  # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  environment.systemPackages = with pkgs; [
+    # essential
+    vim                         # system wide vim with no plugins or config set
+    gnome.gnome-keyring
+    gnome.libgnome-keyring
+
+    # theming
+    lxappearance
+    qogir-theme
+    qogir-icon-theme
+    sddm-chili-theme
+    catppuccin-gtk
+
+    # common coding
     git
-    tmux
-    curl
+    gcc
+    gitflow
+    gnumake
+    nodejs
+    pre-commit
+    tree-sitter
+    rnix-lsp
     direnv
     nix-direnv
-    bash
-    gcc
-    go
+    universal-ctags
+    docker-compose
+
+    # terminals
+    terminator
+    alacritty
+    tmux
+
+    # apps
     gparted
+    spotify
+    libreoffice-fresh
+    remmina
+    font-manager
+    arandr
+
+    # cli
+    wget
+    curl
+    neofetch
+    dstask
+    ripgrep
+    xsel
+    exa
+    bat
+    fd
+    youtube-dl
+    pandoc
+
+    # utils
+    autorandr
+    unzip
+    tree
+    mosh
+    fakeroot
     killall
     lm_sensors
     pciutils
     usbutils
     pulseaudio-ctl
-    python-with-packages
-    rnix-lsp
-    tdesktop
-    terminator
     libnotify
 
-    gnome.gnome-keyring
-    gnome.libgnome-keyring
-
-    minikube
-    kubectl
-    kubernetes-helm
-    spotify
-    dropbox
-    dropbox-cli
-    remmina
+    # messaging
+    telegram-desktop
     slack
-    lxappearance
-    font-manager
-    alacritty
-    jetbrains.idea-ultimate
-    jetbrains.goland
-    jetbrains.datagrip
-    jetbrains.pycharm-professional
-    neovim
-    obsidian
-    qogir-theme
-    qogir-icon-theme
     whatsapp-for-linux
-    neofetch
-    arandr
-    autorandr
-    gitflow
-    poetry
-    libreoffice-fresh
-    docker-compose
-    universal-ctags
-    dstask
-    gnumake
-    nodejs
-    lua-language-server
-    unzip
-    buf
-    oapi-codegen
-    gopls
-    tree
-    pre-commit
-    mosh
-    black
-    pandoc
-    tree-sitter
-    lua-with-packages
-    luaformatter
 
-    # for rust
-    llvm
-    bintools
-    zlib
-    xorriso
-    lld
-    lldb
-    glibc
-    rustup
-    
-    fakeroot
-    xsel
-    ripgrep
-    exa
-    bat
-    fd
-    youtube-dl
-    sddm-chili-theme
-    catppuccin-gtk
   ];
 
   # This value determines the NixOS release from which the default

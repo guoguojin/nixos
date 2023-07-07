@@ -1,6 +1,8 @@
 { config, pkgs, nixpkgs, ... }:
 
 {
+  # This will install vim for the user account along with the required
+  # configuration and plugins.
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
