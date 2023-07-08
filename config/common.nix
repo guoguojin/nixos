@@ -89,6 +89,8 @@
       carlito
       vegur
       cantarell-fonts
+      cascadia-code
+      noto-fonts
     ];
   };
 
