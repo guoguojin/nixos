@@ -45,4 +45,6 @@
   # enable logitech hardware and solaar
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;  # required for Solaar
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 }

@@ -22,4 +22,5 @@
   networking.hostName = "hawkeye"; # Define your hostname.
 
   services.picom.enable = true;
+  services.blueman.enable = true;
 }
