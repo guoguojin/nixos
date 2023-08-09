@@ -86,9 +86,20 @@ in {
         "${mod}+F2" = "exec brave --profile-directory=\"Default\";focus";
         "${mod}+Shift+F2" = "exec firefox; focus";
         "${mod}+F3" = "exec code; focus";
-        "${mod}+Shift+Return" = "exec pcmanfm;focus";
+        "${mod}+Shift+Return" = "exec thunar;focus";
         "Print" = "exec --no-startup-id scrot \'%Y-%m-%d-%s_screenshot_$wx$h.jpg\' -e \'mv $f $$(xdg-user-dir PICTURES)/screenshots\'";
         "Control+Print" = "exec --no-startup-id xfce4-screenshooter";
+        "${mod}+h" = "focus left";
+        "${mod}+j" = "focus down";
+        "${mod}+k" = "focus up";
+        "${mod}+l" = "focus right";
+        "${mod}+Shift+h" = "move left";
+        "${mod}+Shift+j" = "move down";
+        "${mod}+Shift+k" = "move up";
+        "${mod}+Shift+l" = "move right";
+        "Mod1+Tab" = "workspace next";
+        "Mod1+Shift+Tab" = "workspace prev";
+        "${mod}+Tab" = "workspace back_and_forth";
         
         "XF86AudioRaiseVolume" = "exec --no-startup-id \"amixer -D pulse sset Master \'5%+\'\"";
         "XF86AudioLowerVolume" = "exec --no-startup-id \"amixer -D pulse sset Master \'5%-\'\"";
