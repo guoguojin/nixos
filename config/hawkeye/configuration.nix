@@ -21,6 +21,9 @@
 
   networking.hostName = "hawkeye"; # Define your hostname.
 
+  # Make sure we're running on the latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.picom.enable = true;
   services.blueman.enable = true;
 }

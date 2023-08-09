@@ -5,8 +5,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Make sure we're running on the latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix = {
     package = pkgs.nixFlakes;
@@ -158,7 +156,14 @@
   # List services that you want to enableb:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      X11Forwarding = true;
+      PasswordAuthentication = false;
+    };
+  };   
+
   services.gnome.gnome-keyring.enable = true;
 
   programs = {
