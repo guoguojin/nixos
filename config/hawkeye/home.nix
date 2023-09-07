@@ -14,5 +14,6 @@
   # Machine specific user space packages
   home.packages = with pkgs; [
     anytype
+    zoom-us
   ];
 }

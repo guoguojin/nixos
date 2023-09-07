@@ -272,7 +272,6 @@
     telegram-desktop
     slack
     whatsapp-for-linux
-
   ];
 
   # This value determines the NixOS release from which the default
