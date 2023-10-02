@@ -249,7 +249,6 @@
     dstask
     ripgrep
     xsel
-    exa
     bat
     fd
     youtube-dl
