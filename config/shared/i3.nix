@@ -9,7 +9,7 @@ in {
       fonts = {
         names = ["Noto Sans Display"];
         style = "Light";
-        size = 12.0;
+        size = 15.0;
       };
 
       defaultWorkspace = "workspace number 1";
@@ -124,7 +124,7 @@ in {
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
           fonts = {
             names = [ "Noto Sans Light" "FontAwesome" ];
-            size = 13.0;
+            size = 15.0;
           };
           trayOutput = "primary";
           colors = {
@@ -157,7 +157,7 @@ in {
           workspaceButtons = false;
           fonts = {
             names = [ "Noto Sans Light" "FontAwesome" ];
-            size = 13.0;
+            size = 15.0;
           };
           trayOutput = "none";
           colors = {
