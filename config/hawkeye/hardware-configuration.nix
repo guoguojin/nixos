@@ -14,17 +14,20 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/root";
+    { 
+      device = "/dev/disk/by-label/root";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-label/BOOT";
+    { 
+      device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
 
   fileSystems."/home/tanq/code" =
-    { device = "/dev/disk/by-label/minisforum";
+    { 
+      device = "/dev/disk/by-label/minisforum";
       fsType = "ext4";
     };
 
