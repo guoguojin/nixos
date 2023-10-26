@@ -48,7 +48,6 @@ in {
       dropbox-cli
       niv
       obsidian
-      simplenote
     ];
   };
 }
