@@ -13,6 +13,7 @@
 
   # Machine specific user space packages
   home.packages = with pkgs; [
+    logseq
     anytype
     zoom-us
   ];

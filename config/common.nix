@@ -18,6 +18,11 @@
     config = {
       allowUnfree = true;
       allowUnfreeRedistributable = true;
+      # Some times packages are blocked by Nix because they have been labelled as insecure
+      # To allow their installation anyway, we can add them to the list
+      permittedInsecurePackages = [
+        "electron-24.8.6"
+      ];
     };
     overlays = import ./overlays;
   };
