@@ -33,7 +33,6 @@
       light
       betterlockscreen
       xautolock
-      udiskie
       unclutter
     ];
   };

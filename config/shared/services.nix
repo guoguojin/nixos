@@ -3,6 +3,7 @@
 {
   services = {
     udiskie = {
+      enable = false;
       automount = true;
       notify = true;
     };
