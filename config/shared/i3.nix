@@ -7,9 +7,9 @@ in {
     config = {
       modifier = mod;
       fonts = {
-        names = ["Noto Sans Display"];
+        names = ["Noto Sans"];
         style = "Light";
-        size = 15.0;
+        size = 13.0;
       };
 
       defaultWorkspace = "workspace number 1";
@@ -35,8 +35,9 @@ in {
         { command = "telegram-desktop -startintray"; notification = false; }
         { command = "slack -u"; notification = false; }
         { command = "whatsapp-for-linux"; notification = false; }
-        { command = "udiskie --tray"; notification = false; }
-        { command = "udiskie-mount -a"; notification = false; }
+        # Temporarily disable because udiskie dependency in python 3.11 won't compile
+        # { command = "udiskie --tray"; notification = false; }
+        # { command = "udiskie-mount -a"; notification = false; }
         { command = "unclutter"; }
         { command = "autotiling"; notification = false; always = true; }
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; notification = false; }
@@ -46,6 +47,7 @@ in {
         { command = "pasystray"; }
         { command = "blueberry-tray"; }
         { command = "nm-applet"; }
+        { command = "solaar"; }
       ];
 
       assigns = {
@@ -124,7 +126,7 @@ in {
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
           fonts = {
             names = [ "Noto Sans Light" "FontAwesome" ];
-            size = 15.0;
+            size = 13.0;
           };
           trayOutput = "primary";
           colors = {
@@ -157,7 +159,7 @@ in {
           workspaceButtons = false;
           fonts = {
             names = [ "Noto Sans Light" "FontAwesome" ];
-            size = 15.0;
+            size = 13.0;
           };
           trayOutput = "none";
           colors = {
