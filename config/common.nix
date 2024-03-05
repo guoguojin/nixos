@@ -84,7 +84,7 @@
     enableGhostscriptFonts = true;
     packages = with pkgs; [
       powerline-fonts
-      nerdfonts
+      #nerdfonts
       source-code-pro
       font-awesome
       corefonts
