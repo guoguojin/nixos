@@ -12,8 +12,7 @@
       experimental-features = nix-command flakes
     '';
   };
-
-  # Allow unfree packages
+# Allow unfree packages
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -70,14 +69,14 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "gb";
+    layout = "us";
     xkbVariant = "";
     xkbOptions = "eurosign:e";
     dpi = 96;
   };
 
   # Configure console keymap
-  console.keyMap = "uk";
+  console.keyMap = "us";
   console.font = "Lat2-Terminus16";
 
   fonts = {
@@ -209,6 +208,7 @@
   environment.systemPackages = with pkgs; [
     # essential
     vim                         # system wide vim with no plugins or config set
+    neovim
     gnome.gnome-keyring
     gnome.libgnome-keyring
 
@@ -238,6 +238,7 @@
     terminator
     alacritty
     tmux
+    kitty
 
     # apps
     gparted
@@ -284,5 +285,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

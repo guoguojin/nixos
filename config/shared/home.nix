@@ -7,7 +7,7 @@ let
   user = "tanq";
 in {
   home = {
-    stateVersion = "23.05";
+    stateVersion = "23.11";
 
     # files and folders we want to map in the filesystem
     # instead of using generated nix files.
