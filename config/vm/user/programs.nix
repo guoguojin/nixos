@@ -14,5 +14,6 @@
     ../../shared/programs/git.nix
     ../../shared/programs/vim.nix
     ../../shared/programs/z-lua.nix
+    ../../shared/programs/omp.nix
   ];
 }
