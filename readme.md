@@ -10,6 +10,12 @@ wget https://www.synaptics.com/sites/default/files/exe_files/2022-08/DisplayLink
 nix-prefetch-url file://$HOME/Downloads/displaylink-561.zip
 ```
 
+### Bootloader
+
+This configuration expects an EFI boot bios, when setting up a VM in QEMU ensure that when you create the VM, you edit
+the configuration before starting the VM and change the firmware to `UEFI`, otherwise the default `BIOS` firmware will
+be used and the configuration will need to be changed to reflect this.
+
 ## Instructions
 
 The easiest way to install NixOS using this flake is to download a NixOS LiveCD Installer from 
@@ -37,7 +43,7 @@ Use GParted or a CLI disk partitioner to prepare your disks, you will need the f
 3. Create the boot mount folder
 
     ```bash
-    mkdir /mnt/boot/efi
+    mkdir -p /mnt/boot/efi
     ```
 
 4. Mount the boot partition to `/mnt/boot/efi`
@@ -52,13 +58,7 @@ Use GParted or a CLI disk partitioner to prepare your disks, you will need the f
     swapon /dev/disk/by-label/swap
     ```
 
-6. Enable Git and Nix Flakes
-
-    ```bash
-    nix-shell -p git nixFlakes
-    ```
-
-7. Clone this repository
+6. Clone this repository
 
     ```bash
     git clone https://github.com/guoguojin/nixos.git /path/to/clone-to
@@ -66,19 +66,18 @@ Use GParted or a CLI disk partitioner to prepare your disks, you will need the f
 
     > NOTE: If you clone the folder into a volatile path (i.e. a path that will not be available after you have
     installed NixOS), you will need to clone the repo again after the install is completed and you have rebooted
-    in order to update your system with the flake.<br/>
-    </br>
-    Alternatively, you should clone this into the mounted volume so you can access it again after you have 
+    in order to update your system with the flake.
+
+    Alternatively, you should clone this into the mounted volume so you can access it again after you have
     installed NixOS.
 
-
-8. Navigate to the folder you just cloned:
+7. Navigate to the folder you just cloned:
 
     ```bash
     cd /path/to/clone-to
     ```
 
-9. Install NixOS
+8. Install NixOS
 
     ```bash
     nixos-install --flake .#<profile-to-install>
@@ -87,11 +86,11 @@ Use GParted or a CLI disk partitioner to prepare your disks, you will need the f
     This will use the specified profile and flake to install the system. You will be prompted for a root password
     for the system. Enter the password you want to use and repeat when prompted.
 
-10. When finished reboot the machine. Log in and remember to change the user password.
+9. When finished reboot the machine. Log in and remember to change the user password.
 
 ## Post install
 
-After you have logged in and you have changed your password, you should create a sym link to the flake.nix and 
+After you have logged in and you have changed your password, you should create a sym link to the flake.nix and
 flake.lock file in /etc/nixos. As previously mentioned, you may need to clone this repository again after you
 have completed the install if you had originally cloned it to a volatile file system (i.e. the install LiveCD).
 
